@@ -136,13 +136,13 @@ app2.layout = html.Div(
             
             dcc.Dropdown(id='dd1',
                          options=[{'label': i, 'value': i} for i in metrics],
-                         value='Metric'),
+                         value='men_overwork'),
             
             html.H3("Grouping"),
             
             dcc.Dropdown(id='dd2',
                          options=[{'label': i, 'value': i} for i in groupings],
-                         value='Grouping')
+                         value='sex')
         
         ],style={'width': '25%', 'float': 'left'}),
         
