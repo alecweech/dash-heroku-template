@@ -116,9 +116,10 @@ prob_6.update(layout=dict(title=dict(x=0.5)))
 prob_6.for_each_annotation(lambda a: \
                         a.update(text=a.text.replace("prestige_group=", "")))
 
-app2 = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
-app2.layout = html.Div(
+app.layout = html.Div(
     [
         html.H1("Exploring the results of the General Social Survey"),
         
@@ -179,7 +180,7 @@ app2.layout = html.Div(
     
     ]
 )
-@app2.callback(Output("graph1","figure"), 
+@app.callback(Output("graph1","figure"), 
                   [Input('dd1',"value"),
                    Input('dd2',"value")])
 def update_img_src(dd1, dd2):
@@ -190,4 +191,4 @@ def update_img_src(dd1, dd2):
 
 
 if __name__ == '__main__':
-    app2.run_server()
+    app.run_server()
