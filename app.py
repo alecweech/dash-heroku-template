@@ -188,8 +188,6 @@ def update_img_src(Metric, Grouping):
     figure = px.bar(setup, x='response', y='count', color='grouping',hover_data = ['response', 'count', 'grouping'],text='response', barmode = 'group')
     return figure
 
-if __name__ == '__main__':
-    app2.run_server(debug=True)
 
 if __name__ == '__main__':
     app2.run_server(debug=True, port=8051, host='0.0.0.0')
