@@ -182,12 +182,12 @@ app2.layout = html.Div(
 @app2.callback(Output("graph1","figure"), 
                   [Input('dd1',"value"),
                    Input('dd2',"value")])
-def update_img_src(Metric, Grouping):
-    setup = gss_clean.groupby([Metric, Grouping]).size().reset_index()
+def update_img_src(dd1, dd2):
+    setup = gss_clean.groupby([dd1, dd2]).size().reset_index()
     setup.columns = ['response', 'grouping', 'count']
     figure = px.bar(setup, x='response', y='count', color='grouping',hover_data = ['response', 'count', 'grouping'],text='response', barmode = 'group')
     return figure
 
 
 if __name__ == '__main__':
-    app2.run_server(debug=True, port=8051, host='0.0.0.0')
+    app2.run_server()
