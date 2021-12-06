@@ -5,8 +5,8 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import html
+from dash import dcc
 from dash.dependencies import Input, Output
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -40,7 +40,6 @@ gss_clean.age = gss_clean.age.astype('float')
 ### Markdown text
 string_of_wisdom = '''### What is the GSS? 
 The [gss](https://www.nsf.gov/pubs/2007/nsf0748/nsf0748_3.pdf) is a core set of questions on social attitudes that has been conducted by NORC since 1972. In that time core questions and methodologies have changed. This notebook takes a look at 2019 data from the GSS. It aims to take a representative sample from the US population aged 15 and older. The survey itself is conducted with 90 minute in person interviews and a split-ballot approach, meaning that not all participants will have answered all questions. Core questions include socioeconomic and demographic indicators. Here, we will be using those to take a look at the gender pay gap in the US. 
-
 ### Why should I be concerned with a gender pay gap in the US?
 According to [pew research](https://www.pewresearch.org/fact-tank/2021/05/25/gender-pay-gap-facts/) the gender pay gap is alive and well in the US. It has shrunk from 36 cents on the dollar in 1986 to 7 cents on the dollar in 2020. Not only that, but it received the plurality of responses in a survey of important issues to be addressed in order to further gender equality in the US. Women continue to be over-represented in lower paying roles and suffer more financially from time taken off for parenting. According to [AAUW](https://www.aauw.org/resources/research/simple-truth/) this issue compunds some of the challenges that marginalized communities in the US face. For example, they project that asian-american women will reach pay equity with non-hispanic white males in 20 years at the current rate. However, for hispanic women, with current trends, that time is over 400 years. This interaction compounds the difficulties that the US has in establishing a just and equitable society. While gender pay discrimination and many other forms of discrimination are illegal, some of them are deeply embedded in our cultural and procedural norms. Monitoring the data can help us get a sense of where our society is now on the gender pay gap, and the actions we can all take to narrow it. '''
 
@@ -191,3 +190,6 @@ def update_img_src(Metric, Grouping):
 
 if __name__ == '__main__':
     app2.run_server(debug=True)
+
+if __name__ == '__main__':
+    app2.run_server(debug=True, port=8051, host='0.0.0.0')
